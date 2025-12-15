@@ -1,6 +1,5 @@
 # mini-sql-engine
 ## Overview
-
 This is a small SQL engine I built using Python.  
 It can load data from CSV files and run basic SQL queries from the command line.  
 The goal of this project was to understand how databases work behind the scenes, like selecting columns, filtering rows, and counting values, without using an actual database.  
@@ -21,8 +20,7 @@ cd mini-sql-engine
 ```bash
 python cli.py data/people.csv
 ```
-5.The program may show a >> or blank line at first.
-Press Enter once, and the proper prompt will appear:
+4.You will see this prompt:
 ```bash
 Mini SQL Engine (type 'exit' to quit)
 mini-sql>
@@ -45,9 +43,7 @@ SELECT * FROM table_name;
 ```
 ## Example
  ```sql
-mini-sql>   SELECT * FROM people;```
-
-``` bash
+mini-sql> SELECT * FROM people;
 {'id': '1', 'name': 'Alice', 'age': '30', 'country': 'USA'}
 {'id': '2', 'name': 'Bob', 'age': '25', 'country': 'India'}
 {'id': '3', 'name': 'Charlie', 'age': '35', 'country': 'USA'}
@@ -59,9 +55,8 @@ mini-sql>   SELECT * FROM people;```
 SELECT column1, column2 FROM table_name;
 ```
 ## Example
-```sql
-mini-sql>   SELECT name, age FROM people;```
-``` bash
+``` sql
+mini-sql> SELECT name, age FROM people;
 {'name': 'Alice', 'age': '30'}
 {'name': 'Bob', 'age': '25'}
 {'name': 'Charlie', 'age': '35'}
@@ -76,9 +71,8 @@ SELECT column1, column2 FROM table_name WHERE column_name = 'USA';
 
 ```
 ## Example1
-```sql
-mini-sql>  SELECT * FROM people WHERE age > 25;```
- ```bash
+``` sql
+mini-sql> SELECT * FROM people WHERE age > 25;
 {'id': '1', 'name': 'Alice', 'age': '30', 'country': 'USA'}
 {'id': '3', 'name': 'Charlie', 'age': '35', 'country': 'USA'}
 (2 rows)
@@ -86,8 +80,7 @@ mini-sql>  SELECT * FROM people WHERE age > 25;```
 ```
 ## Example2
 ``` sql
-mini-sql>  SELECT name, country FROM people WHERE country = 'USA'; ```
-``` bash
+mini-sql> SELECT name, country FROM people WHERE country = 'USA';
 {'name': 'Alice', 'country': 'USA'}
 {'name': 'Charlie', 'country': 'USA'}
 (2 rows)
@@ -99,16 +92,14 @@ SELECT COUNT(*) FROM table_name;
 SELECT COUNT(column_name) FROM table_name;
 ```
 ## Example1
-  ```sql
-mini-sql> SELECT COUNT(*) FROM people;```
-``` bash
+``` sql 
+mini-sql> SELECT COUNT(*) FROM people;
 COUNT = 4
 
 ```
 ## Example2
 ``` sql
-mini-sql>   SELECT COUNT(age) FROM people; ```
-``` bash
+mini-sql> SELECT COUNT(age) FROM people;
 COUNT = 3
 
 ```
