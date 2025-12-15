@@ -44,8 +44,8 @@ These are the queries my engine can handle:
 SELECT * FROM table_name;
 ```
 ## Example
- 
-mini-sql>  ```sql SELECT * FROM people;```
+ ```sql
+mini-sql>   SELECT * FROM people;```
 
 ``` bash
 {'id': '1', 'name': 'Alice', 'age': '30', 'country': 'USA'}
@@ -59,8 +59,8 @@ mini-sql>  ```sql SELECT * FROM people;```
 SELECT column1, column2 FROM table_name;
 ```
 ## Example
-
-mini-sql>  ```sql SELECT name, age FROM people;```
+```sql
+mini-sql>   SELECT name, age FROM people;```
 ``` bash
 {'name': 'Alice', 'age': '30'}
 {'name': 'Bob', 'age': '25'}
@@ -76,8 +76,8 @@ SELECT column1, column2 FROM table_name WHERE column_name = 'USA';
 
 ```
 ## Example1
-
-mini-sql> ```sql SELECT * FROM people WHERE age > 25;```
+```sql
+mini-sql>  SELECT * FROM people WHERE age > 25;```
  ```bash
 {'id': '1', 'name': 'Alice', 'age': '30', 'country': 'USA'}
 {'id': '3', 'name': 'Charlie', 'age': '35', 'country': 'USA'}
@@ -85,8 +85,8 @@ mini-sql> ```sql SELECT * FROM people WHERE age > 25;```
 
 ```
 ## Example2
-
-mini-sql>  ``` sql SELECT name, country FROM people WHERE country = 'USA'; ```
+``` sql
+mini-sql>  SELECT name, country FROM people WHERE country = 'USA'; ```
 ``` bash
 {'name': 'Alice', 'country': 'USA'}
 {'name': 'Charlie', 'country': 'USA'}
@@ -99,15 +99,15 @@ SELECT COUNT(*) FROM table_name;
 SELECT COUNT(column_name) FROM table_name;
 ```
 ## Example1
- 
-mini-sql> ``` sql SELECT COUNT(*) FROM people;```
+  ```sql
+mini-sql> SELECT COUNT(*) FROM people;```
 ``` bash
 COUNT = 4
 
 ```
 ## Example2
-
-mini-sql>  ``` sql SELECT COUNT(age) FROM people; ```
+``` sql
+mini-sql>   SELECT COUNT(age) FROM people; ```
 ``` bash
 COUNT = 3
 
