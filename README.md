@@ -1,5 +1,6 @@
 # mini-sql-engine
 ## Overview
+
 This is a small SQL engine I built using Python.  
 It can load data from CSV files and run basic SQL queries from the command line.  
 The goal of this project was to understand how databases work behind the scenes, like selecting columns, filtering rows, and counting values, without using an actual database.  
@@ -20,7 +21,8 @@ cd mini-sql-engine
 ```bash
 python cli.py data/people.csv
 ```
-4.You will see this prompt:
+5.The program may show a >> or blank line at first.
+Press Enter once, and the proper prompt will appear:
 ```bash
 Mini SQL Engine (type 'exit' to quit)
 mini-sql>
@@ -41,10 +43,30 @@ These are the queries my engine can handle:
  ```sql
 SELECT * FROM table_name;
 ```
+## Example
+ 
+mini-sql>  ```sql SELECT * FROM people;```
 
+``` bash
+{'id': '1', 'name': 'Alice', 'age': '30', 'country': 'USA'}
+{'id': '2', 'name': 'Bob', 'age': '25', 'country': 'India'}
+{'id': '3', 'name': 'Charlie', 'age': '35', 'country': 'USA'}
+{'id': '4', 'name': 'David', 'age': '', 'country': 'UK'}
+(4 rows)
+```
 2. **Select specific columns**
  ```sql
 SELECT column1, column2 FROM table_name;
+```
+## Example
+
+mini-sql>  ```sql SELECT name, age FROM people;```
+``` bash
+{'name': 'Alice', 'age': '30'}
+{'name': 'Bob', 'age': '25'}
+{'name': 'Charlie', 'age': '35'}
+{'name': 'David', 'age': ''}
+(4 rows)
 ```
 
 3. **Filter rows with WHERE (single condition only)**
@@ -53,12 +75,43 @@ SELECT * FROM table_name WHERE column_name > 25;
 SELECT column1, column2 FROM table_name WHERE column_name = 'USA';
 
 ```
+## Example1
+
+mini-sql> ```sql SELECT * FROM people WHERE age > 25;```
+ ```bash
+{'id': '1', 'name': 'Alice', 'age': '30', 'country': 'USA'}
+{'id': '3', 'name': 'Charlie', 'age': '35', 'country': 'USA'}
+(2 rows)
+
+```
+## Example2
+
+mini-sql>  ``` sql SELECT name, country FROM people WHERE country = 'USA'; ```
+``` bash
+{'name': 'Alice', 'country': 'USA'}
+{'name': 'Charlie', 'country': 'USA'}
+(2 rows)
+
+```
 4. **COUNT() function**
  ```sql
 SELECT COUNT(*) FROM table_name;
 SELECT COUNT(column_name) FROM table_name;
 ```
+## Example1
+ 
+mini-sql> ``` sql SELECT COUNT(*) FROM people;```
+``` bash
+COUNT = 4
 
+```
+## Example2
+
+mini-sql>  ``` sql SELECT COUNT(age) FROM people; ```
+``` bash
+COUNT = 3
+
+```
 **Notes:**
 
 - Only one condition is allowed in the WHERE clause.
@@ -68,33 +121,20 @@ SELECT COUNT(column_name) FROM table_name;
 - COUNT(column_name) counts only non-empty values.
 ---
 
-## Examples
- ```sql
-mini-sql> SELECT * FROM people;
-{'id': '1', 'name': 'Alice', 'age': '30', 'country': 'USA'}
-{'id': '2', 'name': 'Bob', 'age': '25', 'country': 'India'}
-{'id': '3', 'name': 'Charlie', 'age': '35', 'country': 'USA'}
-{'id': '4', 'name': 'David', 'age': '', 'country': 'UK'}
-(4 rows)
 
-mini-sql> SELECT name, age FROM people WHERE age > 25;
-{'name': 'Alice', 'age': '30'}
-{'name': 'Charlie', 'age': '35'}
-(2 rows)
 
-mini-sql> SELECT COUNT(*) FROM people;
-COUNT = 4
-```
 ## Project Structure
-mini-sql-engine/
-cli.py         # Runs the command-line interface
-parser.py      # Handles parsing of SQL queries
-engine.py      # Executes queries and aggregation
-loader.py      # Loads CSV data into memory
-data/          # Folder containing CSV files
-  people.csv   # Example CSV file
-README.md      # This file
-.gitignore     # Git ignore file
+
+- mini-sql-engine/
+  - cli.py         Runs the command-line interface
+  - parser.py      Handles parsing of SQL queries
+  - engine.py      Executes queries and aggregation
+  - loader.py      Loads CSV data into memory
+  - data/          Folder containing CSV files
+    - people.csv   Example CSV file
+  - README.md      This file
+  - .gitignore     Git ignore file
+
 
 ---
 
